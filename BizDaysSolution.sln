@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays", "BizDays\BizDays.csproj", "{EB234B6D-961C-47D1-B820-817CD891E1A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays.Tests", "BizDays.Tests\BizDays.Tests.csproj", "{4792BFB9-F24B-422A-B506-DC849E4369B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB234B6D-961C-47D1-B820-817CD891E1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB234B6D-961C-47D1-B820-817CD891E1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB234B6D-961C-47D1-B820-817CD891E1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB234B6D-961C-47D1-B820-817CD891E1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FEDE902-BD7A-4DFB-974E-FD25E8BC45BB}
+	EndGlobalSection
+EndGlobal
