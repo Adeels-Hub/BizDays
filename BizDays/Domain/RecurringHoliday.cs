@@ -25,7 +25,7 @@ namespace BizDays.Domain
                 return false;
 
             // Get the first day of the month
-            DateTime firstDayOfMonth = new DateTime(date.Year, _month, 1);
+            DateTime firstDayOfMonth = new DateTime(date.Year, _month, 1, 0, 0, 0, DateTimeKind.Utc);
 
             // Find the first occurrence of the day of the week
             int daysToAdd = ((_dayOfWeek - firstDayOfMonth.DayOfWeek + 7) % 7);

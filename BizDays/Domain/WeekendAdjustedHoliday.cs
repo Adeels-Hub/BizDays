@@ -19,13 +19,14 @@ namespace BizDays.Domain
 
         public bool IsHoliday(DateTime date)
         {
-            if (date.Month == _month && date.Day == _day)
+            // If the holiday falls on a weekend, it shifts to the next Monday
+            if (date.Month == _month && date.Day == _day &&
+                (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday))
             {
-                // If the holiday falls on a weekend, it shifts to the next Monday
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
-                    return true;
+                return true;
             }
             return false;
         }
+
     }
 }
