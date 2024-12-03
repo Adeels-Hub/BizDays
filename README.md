@@ -34,6 +34,7 @@ Contains abstractions and interfaces that define the contract for holiday rules:
 - **Namespace:** `BizDays.Abstractions.Domain`
 - **Key Interface:**
   - `IHolidayRule`: Defines a method `bool IsHoliday(DateTime date)` for determining if a date is a holiday.
+  - `IBusinessDayService`: Exposes the public API for calculating weekdays and business days.
 
 ### 2. **BizDays.Implementation**
 Contains concrete implementations of business day counters and holiday rules:
@@ -44,12 +45,13 @@ Contains concrete implementations of business day counters and holiday rules:
   - `FixedDateHoliday`: Implements `IHolidayRule` for holidays on fixed dates.
   - `DayOccurrenceHoliday`: Implements `IHolidayRule` for holidays based on occurrences (e.g., second Monday in June).
   - `WeekendAdjustedHoliday`: Implements `IHolidayRule` for holidays that adjust for weekends.
+- **Namespace:** `BizDays.Implementation.Services`
+  - `BusinessDayService`: Implements `IBusinessDayService` to provide a unified entry point for consumers.
 
 ### 3. **BizDays.Tests**
-Contains unit tests for both basic and advanced functionalities:
-- **Key Test Classes:**
-  - `BusinessDayCounterTests`: Tests for core weekday and business day calculations.
-  - `AdvancedBusinessDayCounterTests`: Tests advanced calculations with dynamic holiday rules.
+Contains unit tests for validating the functionality of the `BusinessDayService`:
+- **Key Test Class:**
+  - `BusinessDayServiceTests`: Validates all scenarios for weekdays and business days using dynamic holiday rules.
 
 ---
 
@@ -63,6 +65,8 @@ Contains unit tests for both basic and advanced functionalities:
   - Handle fixed-date holidays.
   - Support holidays based on day occurrences (e.g., first Monday in October).
   - Adjust holidays falling on weekends to the next weekday.
+- **Public API via Service:**
+  - Consumers interact with the `IBusinessDayService` interface for streamlined functionality.
 
 ---
 
@@ -71,34 +75,23 @@ Contains unit tests for both basic and advanced functionalities:
 ### Step 1: Add References
 Include references to both `BizDays.Abstractions` and `BizDays.Implementation` in your project.
 
-### Step 2: Implement Custom Holiday Rules
-If required, create custom implementations of `IHolidayRule`.
+### Step 2: Use `BusinessDayService`
+Inject or create an instance of `BusinessDayService` to perform calculations.
 
 ```csharp
-public class CustomHoliday : IHolidayRule
-{
-    public bool IsHoliday(DateTime date)
-    {
-        // Custom logic
-        return date.Month == 5 && date.Day == 15; // Example: May 15th is a holiday
-    }
-}
-```
+// Create service instance
+IBusinessDayService service = new BusinessDayService();
 
-### Step 3: Use Business Day Counter
-Use either `BusinessDayCounter` or `AdvancedBusinessDayCounter` for your calculations.
+// Calculate weekdays
+int weekdays = service.WeekdaysBetweenTwoDates(startDate, endDate);
 
-```csharp
-// Basic calculation
-int weekdays = BusinessDayCounter.WeekdaysBetweenTwoDates(startDate, endDate);
+// Calculate business days with public holidays
+var publicHolidays = new List<DateTime> { new DateTime(2023, 12, 25), new DateTime(2023, 12, 26) };
+int businessDays = service.BusinessDaysBetweenTwoDates(startDate, endDate, publicHolidays);
 
-// Advanced calculation with custom holiday rules
-var holidayRules = new List<IHolidayRule>
-{
-    new FixedDateHoliday(12, 25), // Christmas
-    new WeekendAdjustedHoliday(1, 1), // New Year's Day
-};
-int businessDays = AdvancedBusinessDayCounter.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
+// Calculate business days with dynamic holiday rules
+var holidayRules = new List<IHolidayRule> { new FixedDateHoliday(12, 25), new WeekendAdjustedHoliday(1, 1) };
+int advancedBusinessDays = service.BusinessDaysBetweenTwoDates(startDate, endDate, holidayRules);
 ```
 
 ---
