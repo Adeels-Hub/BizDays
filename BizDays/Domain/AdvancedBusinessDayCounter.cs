@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using BizDays.Abstractions.Domain;
 
-namespace BizDays.Domain
+namespace BizDays.Implementation.Domain
 {
     public class AdvancedBusinessDayCounter : BusinessDayCounter
     {
         /// <summary>
-        /// Calculates the number of business days between two dates using custom holiday rules.
+        /// Provides advanced functionality for calculating business days between two dates
+        /// using dynamic holiday rules.
+        /// 
+        /// This class builds on the core functionality provided by <see cref="BusinessDayCounter"/>
+        /// by introducing support for custom holiday rules through the <see cref="IHolidayRule"/> interface.
+        /// It is designed to handle complex scenarios, such as regional holidays, recurring holidays,
+        /// and weekend-adjusted holidays.
+        /// 
+        /// Keeping this class separate ensures that the core logic in <see cref="BusinessDayCounter"/> 
+        /// remains reusable and lightweight, while advanced features are modular and easily extendable.
         /// </summary>
         /// <param name="firstDate">The start date (exclusive).</param>
         /// <param name="secondDate">The end date (exclusive).</param>

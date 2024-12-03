@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BizDays\BizDays.csproj" />
+    <ProjectReference Include="..\BizDays\BizDays.Implementation.csproj" />
   </ItemGroup>
 
 </Project>

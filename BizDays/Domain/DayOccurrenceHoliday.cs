@@ -1,4 +1,6 @@
-﻿namespace BizDays.Domain
+﻿using BizDays.Abstractions.Domain;
+
+namespace BizDays.Implementation.Domain
 {
     public class DayOccurrenceHoliday : IHolidayRule
     {

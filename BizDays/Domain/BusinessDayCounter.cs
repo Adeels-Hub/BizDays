@@ -1,9 +1,18 @@
-﻿namespace BizDays.Domain
+﻿namespace BizDays.Implementation.Domain
 {
     public class BusinessDayCounter
     {
         /// <summary>
-        /// Calculates the number of weekdays between two dates, excluding the start and end dates.
+        /// Provides core functionality for calculating weekdays and business days between two dates.
+        /// 
+        /// This class is intentionally kept separate from more advanced implementations, such as
+        /// <see cref="AdvancedBusinessDayCounter"/>, to adhere to the Single Responsibility Principle (SRP)
+        /// and promote reusability. It focuses solely on basic date calculations, ensuring a clean
+        /// and maintainable foundation for future extensions.
+        /// 
+        /// By separating core logic into this class, we ensure scalability and flexibility, allowing
+        /// different business day counter variations to build on this functionality without introducing
+        /// unnecessary complexity.
         /// </summary>
         /// <param name="firstDate">The start date (exclusive).</param>
         /// <param name="secondDate">The end date (exclusive).</param>

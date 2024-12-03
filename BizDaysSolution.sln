@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays", "BizDays\BizDays.csproj", "{EB234B6D-961C-47D1-B820-817CD891E1A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays.Implementation", "BizDays\BizDays.Implementation.csproj", "{EB234B6D-961C-47D1-B820-817CD891E1A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays.Tests", "BizDays.Tests\BizDays.Tests.csproj", "{4792BFB9-F24B-422A-B506-DC849E4369B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDays.Abstractions", "BizDays.Abstractions\BizDays.Abstractions.csproj", "{50C76FBA-FA46-419F-9C41-D9B90542895E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DDF4ECD-53B9-4D7D-BC03-69238049B714}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,10 @@ Global
 		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4792BFB9-F24B-422A-B506-DC849E4369B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C76FBA-FA46-419F-9C41-D9B90542895E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C76FBA-FA46-419F-9C41-D9B90542895E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C76FBA-FA46-419F-9C41-D9B90542895E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C76FBA-FA46-419F-9C41-D9B90542895E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
