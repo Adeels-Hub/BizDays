@@ -12,6 +12,7 @@ The `BizDays` solution is a modular and scalable library designed for calculatin
   - [BizDays.Implementation](#bizdaysimplementation)
   - [BizDays.Tests](#bizdaystests)
 - [Features](#features)
+- [Design Decisions](#design-decisions)
 - [How to Use](#how-to-use)
 - [Running Tests](#running-tests)
 - [Future Enhancements](#future-enhancements)
@@ -67,6 +68,23 @@ Contains unit tests for validating the functionality of the `BusinessDayService`
   - Adjust holidays falling on weekends to the next weekday.
 - **Public API via Service:**
   - Consumers interact with the `IBusinessDayService` interface for streamlined functionality.
+
+---
+
+## Design Decisions
+
+### Why `BusinessDayCounter` and `AdvancedBusinessDayCounter` Are Public
+
+We have intentionally kept the `BusinessDayCounter` and `AdvancedBusinessDayCounter` classes **public** to allow advanced users to subclass and extend these core functionalities directly if needed. This design decision ensures the library remains flexible for power users with custom requirements.
+
+### Best Practice Recommendation
+
+As a best practice, these classes can be made **internal** to restrict direct access from outside the library. This approach would ensure:
+1. **Encapsulation:** Only the `BusinessDayService` and `IBusinessDayService` serve as the public API.
+2. **Ease of Maintenance:** Changes to internal classes do not risk breaking external consumers.
+3. **Clear API:** Provides a focused and simplified interface for consumers.
+
+By keeping these classes public, we balance flexibility with usability, empowering users while following clean code principles.
 
 ---
 
